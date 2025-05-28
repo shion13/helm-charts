@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: httpbin-postsync
+  annotations:
+    "argocd.argoproj.io/hook": PostSync
+    # "argocd.argoproj.io/hook-delete-policy": HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: curl-container
+          image: curlimages/curl:latest
+          command:
+            - "curl"
+            - "-X"
+            - "POST"
+            - "http://httpbin:80/get"
+          restartPolicy: Never
+      terminationGracePeriodSeconds: 10
