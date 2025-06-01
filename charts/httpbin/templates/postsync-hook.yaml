@@ -11,10 +11,6 @@ spec:
       containers:
         - name: curl-container
           image: curlimages/curl:latest
-          command:
-            - "curl"
-            - "-X"
-            - "GET"
-            - "http://httpbin:80/get"
+          command: ["curl", "-v", "http://httpbin/get"]
       restartPolicy: Never
       terminationGracePeriodSeconds: 10
