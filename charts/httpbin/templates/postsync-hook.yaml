@@ -11,6 +11,6 @@ spec:
       containers:
         - name: curl-container
           image: curlimages/curl:latest
-          command: ["curl", "-v", "http://httpbin/get"]
+          command: ["curl", "-v", "http://httpbin.default.svc.cluster.local/get"]
       restartPolicy: Never
       terminationGracePeriodSeconds: 10
