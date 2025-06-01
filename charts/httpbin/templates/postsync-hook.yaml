@@ -12,6 +12,11 @@ spec:
         - name: curl-container
           image: curlimages/curl:latest
           command: ["curl"]
-          args: ["http://httpbin.default.svc.cluster.local/get"]
+          args:
+            - -X
+            - GET
+            - "http://httpbin.default.svc.cluster.local/get"
+            - -H
+            - "accept: application/json"
       restartPolicy: Never
       terminationGracePeriodSeconds: 10
