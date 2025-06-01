@@ -11,12 +11,11 @@ spec:
       containers:
         - name: curl-container
           image: curlimages/curl:latest
-          command: ["curl"]
+          command: ["/bin/sh"]
           args:
-            - -X
-            - GET
-            - "http://httpbin.default.svc.cluster.local/get"
-            - -H
-            - "accept: application/json"
+            - "-c"
+            - |
+              echo "Curling httpbin service inside the cluster...";
+              curl -v -X GET "http://httpbin.default.svc.cluster.local/get" -H "accept: application/json"
       restartPolicy: Never
       terminationGracePeriodSeconds: 10
