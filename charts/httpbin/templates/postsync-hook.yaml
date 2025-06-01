@@ -16,5 +16,5 @@ spec:
             - "-X"
             - "POST"
             - "http://httpbin:80/get"
-          restartPolicy: Never
+      restartPolicy: Never
       terminationGracePeriodSeconds: 10
