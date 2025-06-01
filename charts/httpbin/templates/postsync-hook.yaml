@@ -1,17 +1,17 @@
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: httpbin-postsync
-  annotations:
-    "argocd.argoproj.io/hook": PostSync
-    # "argocd.argoproj.io/hook-delete-policy": HookSucceeded
-spec:
-  template:
-    spec:
-      containers:
-        - name: curl-container
-          image: curlimages/curl:latest
-          command: ["curl"]
-          args: ["-v", "-X", "GET", "http://httpbin.{{ .Values.namespace }}.svc.cluster.local/get", "-H", "accept: application/json"]
-      restartPolicy: Never
-      terminationGracePeriodSeconds: 10
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   name: httpbin-postsync
+#   annotations:
+#     "argocd.argoproj.io/hook": PostSync
+#     # "argocd.argoproj.io/hook-delete-policy": HookSucceeded
+# spec:
+#   template:
+#     spec:
+#       containers:
+#         - name: curl-container
+#           image: curlimages/curl:latest
+#           command: ["curl"]
+#           args: ["-v", "-X", "GET", "http://httpbin.{{ .Values.namespace }}.svc.cluster.local/get", "-H", "accept: application/json"]
+#       restartPolicy: Never
+#       terminationGracePeriodSeconds: 10
