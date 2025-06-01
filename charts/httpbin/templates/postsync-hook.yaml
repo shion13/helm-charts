@@ -14,7 +14,7 @@ spec:
           command:
             - "curl"
             - "-X"
-            - "POST"
+            - "GET"
             - "http://httpbin:80/get"
       restartPolicy: Never
       terminationGracePeriodSeconds: 10
